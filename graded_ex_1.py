@@ -1,4 +1,5 @@
 # Available products by category
+
 products = {
     "IT Products": [
         ("Laptop", 1000),
@@ -105,10 +106,10 @@ def get_user_input(prompt, validation_fn=None):
 
 def main():
     # Get username
-    username = get_user_input('Please enter your full name >> ', validate_name)
+    username = get_user_input(prompt='Please enter your full name >> ', validation_fn=validate_name)
 
     # Get email
-    user_email = get_user_input('Please enter your email >> ', validate_email)
+    user_email = get_user_input(prompt='Please enter your email >> ', validation_fn=validate_email)
 
     cart = []
 
