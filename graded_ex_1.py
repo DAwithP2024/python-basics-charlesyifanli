@@ -40,11 +40,15 @@ def display_products(products_list):
 
 
 def display_categories():
-    pass
+    i = 0
+    for key in products.keys():
+        i += 1
+        print(f'{i}. {key}')
 
 
 def add_to_cart(cart, product, quantity):
     pass
+
 
 def display_cart(cart):
     pass
@@ -54,16 +58,46 @@ def generate_receipt(name, email, cart, total_cost, address):
     pass
 
 
-def validate_name(name):
-    pass
+def validate_name(name: str) -> bool:
+    if ' ' not in name:
+        print('Invalid name')
+        return False
+    res = True
+    first, last = name.split(' ')
+    if not first.isalpha() or not last.isalpha():
+        print('Invalid')
+        res = False
+    return res
 
-def validate_email(email):
-    pass
+
+def validate_email(email: str) -> bool:
+    if '@' not in email:
+        print('Invalid email')
+        return False
+    else:
+        return True
 
 
 def main():
-    pass
-    
+    # name
+    while True:
+        username = input('Please enter your firstname and lastname seperated by blank with only alphabets >> ')
+        if validate_name(username):
+            break
+    # email
+    while True:
+        user_email = input('Please enter your email >> ')
+        if validate_email(user_email):
+            break
+    # show categories
+    display_categories()
+    category = input('Please enter the number corresponding with the category >> ')
+    while not category.isdigit():
+        print('Invalid category')
+        category = input('Please enter the number corresponding with the category >> ')
+    category = int(category)
+    # show products
+
 
 """ The following block makes sure that the main() function is called when the program is run. 
 It also checks that this is the module that's being run directly, and not being used as a module in some other program. 
